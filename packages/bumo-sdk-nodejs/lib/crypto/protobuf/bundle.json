@@ -1,0 +1,1615 @@
+{
+  "nested": {
+    "protocol": {
+      "options": {
+        "java_package": "io.bumo.sdk.core.extend.protobuf"
+      },
+      "nested": {
+        "Account": {
+          "fields": {
+            "address": {
+              "type": "string",
+              "id": 1
+            },
+            "nonce": {
+              "type": "int64",
+              "id": 2
+            },
+            "priv": {
+              "type": "AccountPrivilege",
+              "id": 3
+            },
+            "metadatasHash": {
+              "type": "bytes",
+              "id": 4
+            },
+            "assetsHash": {
+              "type": "bytes",
+              "id": 5
+            },
+            "contract": {
+              "type": "Contract",
+              "id": 6
+            },
+            "balance": {
+              "type": "int64",
+              "id": 7
+            }
+          }
+        },
+        "AssetKey": {
+          "fields": {
+            "issuer": {
+              "type": "string",
+              "id": 1
+            },
+            "code": {
+              "type": "string",
+              "id": 2
+            },
+            "type": {
+              "type": "int32",
+              "id": 3
+            }
+          }
+        },
+        "Asset": {
+          "fields": {
+            "key": {
+              "type": "AssetKey",
+              "id": 1
+            },
+            "amount": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "AssetProperty": {
+          "fields": {
+            "decimal": {
+              "type": "int32",
+              "id": 1
+            },
+            "description": {
+              "type": "string",
+              "id": 2
+            },
+            "maxSupply": {
+              "type": "int64",
+              "id": 3
+            },
+            "issuedAmount": {
+              "type": "int64",
+              "id": 4
+            },
+            "feePercent": {
+              "type": "int32",
+              "id": 5
+            }
+          }
+        },
+        "AssetStore": {
+          "fields": {
+            "key": {
+              "type": "AssetKey",
+              "id": 1
+            },
+            "amount": {
+              "type": "int64",
+              "id": 2
+            },
+            "property": {
+              "type": "AssetProperty",
+              "id": 3
+            }
+          }
+        },
+        "LedgerHeader": {
+          "fields": {
+            "seq": {
+              "type": "int64",
+              "id": 1
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 2
+            },
+            "previousHash": {
+              "type": "bytes",
+              "id": 3
+            },
+            "accountTreeHash": {
+              "type": "bytes",
+              "id": 4
+            },
+            "closeTime": {
+              "type": "int64",
+              "id": 5
+            },
+            "consensusValueHash": {
+              "type": "bytes",
+              "id": 6
+            },
+            "version": {
+              "type": "int64",
+              "id": 7
+            },
+            "txCount": {
+              "type": "int64",
+              "id": 8
+            },
+            "validatorsHash": {
+              "type": "bytes",
+              "id": 9
+            },
+            "feesHash": {
+              "type": "bytes",
+              "id": 10
+            },
+            "reserve": {
+              "type": "string",
+              "id": 11
+            }
+          }
+        },
+        "Ledger": {
+          "fields": {
+            "header": {
+              "type": "LedgerHeader",
+              "id": 1
+            },
+            "transactionEnvs": {
+              "rule": "repeated",
+              "type": "TransactionEnv",
+              "id": 2
+            }
+          }
+        },
+        "OperationPayAsset": {
+          "fields": {
+            "destAddress": {
+              "type": "string",
+              "id": 1
+            },
+            "asset": {
+              "type": "Asset",
+              "id": 2
+            },
+            "input": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "OperationTypeThreshold": {
+          "fields": {
+            "type": {
+              "type": "Operation.Type",
+              "id": 1
+            },
+            "threshold": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "AccountPrivilege": {
+          "fields": {
+            "masterWeight": {
+              "type": "int64",
+              "id": 1
+            },
+            "signers": {
+              "rule": "repeated",
+              "type": "Signer",
+              "id": 2
+            },
+            "thresholds": {
+              "type": "AccountThreshold",
+              "id": 3
+            }
+          }
+        },
+        "AccountThreshold": {
+          "fields": {
+            "txThreshold": {
+              "type": "int64",
+              "id": 1
+            },
+            "typeThresholds": {
+              "rule": "repeated",
+              "type": "OperationTypeThreshold",
+              "id": 2
+            }
+          }
+        },
+        "OperationIssueAsset": {
+          "fields": {
+            "code": {
+              "type": "string",
+              "id": 1
+            },
+            "amount": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "OperationPayCoin": {
+          "fields": {
+            "destAddress": {
+              "type": "string",
+              "id": 1
+            },
+            "amount": {
+              "type": "int64",
+              "id": 2
+            },
+            "input": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "OperationSetSignerWeight": {
+          "fields": {
+            "masterWeight": {
+              "type": "int64",
+              "id": 1
+            },
+            "signers": {
+              "rule": "repeated",
+              "type": "Signer",
+              "id": 2
+            }
+          }
+        },
+        "OperationLog": {
+          "fields": {
+            "topic": {
+              "type": "string",
+              "id": 1
+            },
+            "datas": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "OperationSetPrivilege": {
+          "fields": {
+            "masterWeight": {
+              "type": "string",
+              "id": 1
+            },
+            "signers": {
+              "rule": "repeated",
+              "type": "Signer",
+              "id": 2
+            },
+            "txThreshold": {
+              "type": "string",
+              "id": 3
+            },
+            "typeThresholds": {
+              "rule": "repeated",
+              "type": "OperationTypeThreshold",
+              "id": 4
+            }
+          }
+        },
+        "Operation": {
+          "fields": {
+            "type": {
+              "type": "Type",
+              "id": 1
+            },
+            "sourceAddress": {
+              "type": "string",
+              "id": 2
+            },
+            "metadata": {
+              "type": "bytes",
+              "id": 3
+            },
+            "createAccount": {
+              "type": "OperationCreateAccount",
+              "id": 4
+            },
+            "issueAsset": {
+              "type": "OperationIssueAsset",
+              "id": 5
+            },
+            "payAsset": {
+              "type": "OperationPayAsset",
+              "id": 6
+            },
+            "setMetadata": {
+              "type": "OperationSetMetadata",
+              "id": 7
+            },
+            "setSignerWeight": {
+              "type": "OperationSetSignerWeight",
+              "id": 8
+            },
+            "setThreshold": {
+              "type": "OperationSetThreshold",
+              "id": 9
+            },
+            "payCoin": {
+              "type": "OperationPayCoin",
+              "id": 10
+            },
+            "log": {
+              "type": "OperationLog",
+              "id": 11
+            },
+            "setPrivilege": {
+              "type": "OperationSetPrivilege",
+              "id": 12
+            }
+          },
+          "nested": {
+            "Type": {
+              "values": {
+                "UNKNOWN": 0,
+                "CREATE_ACCOUNT": 1,
+                "ISSUE_ASSET": 2,
+                "PAY_ASSET": 3,
+                "SET_METADATA": 4,
+                "SET_SIGNER_WEIGHT": 5,
+                "SET_THRESHOLD": 6,
+                "PAY_COIN": 7,
+                "LOG": 8,
+                "SET_PRIVILEGE": 9
+              }
+            }
+          }
+        },
+        "OperationSetThreshold": {
+          "fields": {
+            "txThreshold": {
+              "type": "int64",
+              "id": 1
+            },
+            "typeThresholds": {
+              "rule": "repeated",
+              "type": "OperationTypeThreshold",
+              "id": 2
+            }
+          }
+        },
+        "Transaction": {
+          "fields": {
+            "sourceAddress": {
+              "type": "string",
+              "id": 1
+            },
+            "nonce": {
+              "type": "int64",
+              "id": 2
+            },
+            "feeLimit": {
+              "type": "int64",
+              "id": 3
+            },
+            "gasPrice": {
+              "type": "int64",
+              "id": 4
+            },
+            "ceilLedgerSeq": {
+              "type": "int64",
+              "id": 5
+            },
+            "metadata": {
+              "type": "bytes",
+              "id": 6
+            },
+            "operations": {
+              "rule": "repeated",
+              "type": "Operation",
+              "id": 7
+            }
+          },
+          "nested": {
+            "Limit": {
+              "values": {
+                "UNKNOWN": 0,
+                "OPERATIONS": 1000
+              }
+            }
+          }
+        },
+        "Signer": {
+          "fields": {
+            "address": {
+              "type": "string",
+              "id": 1
+            },
+            "weight": {
+              "type": "int64",
+              "id": 2
+            }
+          },
+          "nested": {
+            "Limit": {
+              "values": {
+                "SIGNER_NONE": 0,
+                "SIGNER": 100
+              }
+            }
+          }
+        },
+        "Trigger": {
+          "fields": {
+            "transactionType": {
+              "type": "TransactionType",
+              "id": 1
+            },
+            "ledgerSeq": {
+              "type": "int64",
+              "id": 2
+            },
+            "transaction": {
+              "type": "OperationTrigger",
+              "id": 3
+            }
+          },
+          "nested": {
+            "TransactionType": {
+              "values": {
+                "NORMAL_TRANSACTION": 0,
+                "CONTRACT_TRANSACTION": 1
+              }
+            },
+            "OperationTrigger": {
+              "fields": {
+                "hash": {
+                  "type": "bytes",
+                  "id": 1
+                },
+                "index": {
+                  "type": "int64",
+                  "id": 2
+                }
+              }
+            }
+          }
+        },
+        "Limit": {
+          "values": {
+            "UNKNOWN": 0,
+            "SIGNATURE": 100
+          }
+        },
+        "TransactionEnv": {
+          "fields": {
+            "transaction": {
+              "type": "Transaction",
+              "id": 1
+            },
+            "signatures": {
+              "rule": "repeated",
+              "type": "Signature",
+              "id": 2
+            },
+            "trigger": {
+              "type": "Trigger",
+              "id": 3
+            }
+          }
+        },
+        "TransactionEnvStore": {
+          "fields": {
+            "transactionEnv": {
+              "type": "TransactionEnv",
+              "id": 1
+            },
+            "errorCode": {
+              "type": "int32",
+              "id": 2
+            },
+            "errorDesc": {
+              "type": "string",
+              "id": 3
+            },
+            "ledgerSeq": {
+              "type": "int64",
+              "id": 4
+            },
+            "closeTime": {
+              "type": "int64",
+              "id": 5
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 6
+            },
+            "actualFee": {
+              "type": "int64",
+              "id": 7
+            }
+          }
+        },
+        "TransactionEnvSet": {
+          "fields": {
+            "txs": {
+              "rule": "repeated",
+              "type": "TransactionEnv",
+              "id": 2
+            }
+          }
+        },
+        "ConsensusValueValidation": {
+          "fields": {
+            "expireTxIds": {
+              "rule": "repeated",
+              "type": "int32",
+              "id": 1
+            },
+            "errorTxIds": {
+              "rule": "repeated",
+              "type": "int32",
+              "id": 2
+            }
+          }
+        },
+        "ConsensusValue": {
+          "fields": {
+            "txset": {
+              "type": "TransactionEnvSet",
+              "id": 1
+            },
+            "closeTime": {
+              "type": "int64",
+              "id": 2
+            },
+            "previousProof": {
+              "type": "bytes",
+              "id": 3
+            },
+            "ledgerSeq": {
+              "type": "int64",
+              "id": 4
+            },
+            "previousLedgerHash": {
+              "type": "bytes",
+              "id": 5
+            },
+            "ledgerUpgrade": {
+              "type": "LedgerUpgrade",
+              "id": 6
+            },
+            "validation": {
+              "type": "ConsensusValueValidation",
+              "id": 7
+            }
+          }
+        },
+        "Contract": {
+          "fields": {
+            "type": {
+              "type": "ContractType",
+              "id": 1
+            },
+            "payload": {
+              "type": "string",
+              "id": 2
+            }
+          },
+          "nested": {
+            "ContractType": {
+              "values": {
+                "JAVASCRIPT": 0
+              }
+            }
+          }
+        },
+        "OperationCreateAccount": {
+          "fields": {
+            "destAddress": {
+              "type": "string",
+              "id": 1
+            },
+            "contract": {
+              "type": "Contract",
+              "id": 2
+            },
+            "priv": {
+              "type": "AccountPrivilege",
+              "id": 3
+            },
+            "metadatas": {
+              "rule": "repeated",
+              "type": "KeyPair",
+              "id": 4
+            },
+            "initBalance": {
+              "type": "int64",
+              "id": 5
+            },
+            "initInput": {
+              "type": "string",
+              "id": 6
+            }
+          }
+        },
+        "OperationSetMetadata": {
+          "fields": {
+            "key": {
+              "type": "string",
+              "id": 1
+            },
+            "value": {
+              "type": "string",
+              "id": 2
+            },
+            "version": {
+              "type": "int64",
+              "id": 3
+            },
+            "deleteFlag": {
+              "type": "bool",
+              "id": 4
+            }
+          }
+        },
+        "KeyPair": {
+          "fields": {
+            "key": {
+              "type": "string",
+              "id": 1
+            },
+            "value": {
+              "type": "string",
+              "id": 2
+            },
+            "version": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "Signature": {
+          "fields": {
+            "publicKey": {
+              "type": "string",
+              "id": 1
+            },
+            "signData": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "LedgerUpgrade": {
+          "fields": {
+            "newLedgerVersion": {
+              "type": "int64",
+              "id": 1
+            },
+            "newValidator": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "WsMessage": {
+          "fields": {
+            "type": {
+              "type": "int64",
+              "id": 1
+            },
+            "request": {
+              "type": "bool",
+              "id": 2
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 3
+            },
+            "data": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "Ping": {
+          "fields": {
+            "nonce": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "Pong": {
+          "fields": {
+            "nonce": {
+              "type": "int64",
+              "id": 1
+            }
+          }
+        },
+        "ERRORCODE": {
+          "values": {
+            "ERRCODE_SUCCESS": 0,
+            "ERRCODE_INTERNAL_ERROR": 1,
+            "ERRCODE_INVALID_PARAMETER": 2,
+            "ERRCODE_ALREADY_EXIST": 3,
+            "ERRCODE_NOT_EXIST": 4,
+            "ERRCODE_TX_TIMEOUT": 5,
+            "ERRCODE_ACCESS_DENIED": 6,
+            "ERRCODE_MATH_OVERFLOW": 7,
+            "ERRCODE_EXPR_CONDITION_RESULT_FALSE": 20,
+            "ERRCODE_EXPR_CONDITION_SYNTAX_ERROR": 21,
+            "ERRCODE_INVALID_PUBKEY": 90,
+            "ERRCODE_INVALID_PRIKEY": 91,
+            "ERRCODE_ASSET_INVALID": 92,
+            "ERRCODE_INVALID_SIGNATURE": 93,
+            "ERRCODE_INVALID_ADDRESS": 94,
+            "ERRCODE_MISSING_OPERATIONS": 97,
+            "ERRCODE_TOO_MANY_OPERATIONS": 98,
+            "ERRCODE_BAD_SEQUENCE": 99,
+            "ERRCODE_ACCOUNT_LOW_RESERVE": 100,
+            "ERRCODE_ACCOUNT_SOURCEDEST_EQUAL": 101,
+            "ERRCODE_ACCOUNT_DEST_EXIST": 102,
+            "ERRCODE_ACCOUNT_NOT_EXIST": 103,
+            "ERRCODE_ACCOUNT_ASSET_LOW_RESERVE": 104,
+            "ERRCODE_ACCOUNT_ASSET_AMOUNT_TOO_LARGE": 105,
+            "ERRCODE_ACCOUNT_INIT_LOW_RESERVE": 106,
+            "ERRCODE_FEE_NOT_ENOUGH": 111,
+            "ERRCODE_FEE_INVALID": 112,
+            "ERRCODE_OUT_OF_TXCACHE": 114,
+            "ERRCODE_WEIGHT_NOT_VALID": 120,
+            "ERRCODE_THRESHOLD_NOT_VALID": 121,
+            "ERRCODE_INVALID_DATAVERSION": 144,
+            "ERRCODE_TX_SIZE_TOO_BIG": 146,
+            "ERRCODE_CONTRACT_EXECUTE_FAIL": 151,
+            "ERRCODE_CONTRACT_SYNTAX_ERROR": 152,
+            "ERRCODE_CONTRACT_TOO_MANY_RECURSION": 153,
+            "ERRCODE_CONTRACT_TOO_MANY_TRANSACTIONS": 154,
+            "ERRCODE_CONTRACT_EXECUTE_EXPIRED": 155,
+            "ERRCODE_TX_INSERT_QUEUE_FAIL": 160
+          }
+        },
+        "PbftPrePrepare": {
+          "fields": {
+            "viewNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 2
+            },
+            "replicaId": {
+              "type": "int64",
+              "id": 3
+            },
+            "value": {
+              "type": "bytes",
+              "id": 4
+            },
+            "valueDigest": {
+              "type": "bytes",
+              "id": 5
+            }
+          }
+        },
+        "PbftPrepare": {
+          "fields": {
+            "viewNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 2
+            },
+            "replicaId": {
+              "type": "int64",
+              "id": 3
+            },
+            "valueDigest": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "PbftCommit": {
+          "fields": {
+            "viewNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 2
+            },
+            "replicaId": {
+              "type": "int64",
+              "id": 3
+            },
+            "valueDigest": {
+              "type": "bytes",
+              "id": 4
+            }
+          }
+        },
+        "PbftPreparedSet": {
+          "fields": {
+            "prePrepare": {
+              "type": "PbftEnv",
+              "id": 1
+            },
+            "prepare": {
+              "rule": "repeated",
+              "type": "PbftEnv",
+              "id": 2
+            }
+          }
+        },
+        "PbftViewChange": {
+          "fields": {
+            "viewNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 2
+            },
+            "prepredValueDigest": {
+              "type": "bytes",
+              "id": 3
+            },
+            "replicaId": {
+              "type": "int64",
+              "id": 4
+            }
+          }
+        },
+        "PbftViewChangeWithRawValue": {
+          "fields": {
+            "viewChangeEnv": {
+              "type": "PbftEnv",
+              "id": 1
+            },
+            "preparedSet": {
+              "type": "PbftPreparedSet",
+              "id": 2
+            }
+          }
+        },
+        "PbftNewView": {
+          "fields": {
+            "viewNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "sequence": {
+              "type": "int64",
+              "id": 2
+            },
+            "replicaId": {
+              "type": "int64",
+              "id": 3
+            },
+            "viewChanges": {
+              "rule": "repeated",
+              "type": "PbftEnv",
+              "id": 4
+            },
+            "prePrepare": {
+              "type": "PbftEnv",
+              "id": 5
+            }
+          }
+        },
+        "PbftMessageType": {
+          "values": {
+            "PBFT_TYPE_PREPREPARE": 0,
+            "PBFT_TYPE_PREPARE": 1,
+            "PBFT_TYPE_COMMIT": 2,
+            "PBFT_TYPE_VIEWCHANGE": 3,
+            "PBFT_TYPE_NEWVIEW": 4,
+            "PBFT_TYPE_VIEWCHANG_WITH_RAWVALUE": 5
+          }
+        },
+        "PbftValueType": {
+          "values": {
+            "PBFT_VALUE_TX": 0,
+            "PBFT_VALUE_TXSET": 1
+          }
+        },
+        "Pbft": {
+          "fields": {
+            "roundNumber": {
+              "type": "int64",
+              "id": 1
+            },
+            "type": {
+              "type": "PbftMessageType",
+              "id": 2
+            },
+            "prePrepare": {
+              "type": "PbftPrePrepare",
+              "id": 3
+            },
+            "prepare": {
+              "type": "PbftPrepare",
+              "id": 4
+            },
+            "commit": {
+              "type": "PbftCommit",
+              "id": 5
+            },
+            "viewChange": {
+              "type": "PbftViewChange",
+              "id": 6
+            },
+            "newView": {
+              "type": "PbftNewView",
+              "id": 7
+            },
+            "viewChangeWithRawvalue": {
+              "type": "PbftViewChangeWithRawValue",
+              "id": 8
+            }
+          }
+        },
+        "PbftEnv": {
+          "fields": {
+            "pbft": {
+              "type": "Pbft",
+              "id": 1
+            },
+            "signature": {
+              "type": "Signature",
+              "id": 2
+            }
+          }
+        },
+        "Validator": {
+          "fields": {
+            "address": {
+              "type": "string",
+              "id": 1
+            },
+            "pledgeCoinAmount": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "ValidatorSet": {
+          "fields": {
+            "validators": {
+              "rule": "repeated",
+              "type": "Validator",
+              "id": 1
+            }
+          }
+        },
+        "PbftProof": {
+          "fields": {
+            "commits": {
+              "rule": "repeated",
+              "type": "PbftEnv",
+              "id": 1
+            }
+          }
+        },
+        "FeeConfig": {
+          "fields": {
+            "gasPrice": {
+              "type": "int64",
+              "id": 1
+            },
+            "baseReserve": {
+              "type": "int64",
+              "id": 2
+            }
+          },
+          "nested": {
+            "Type": {
+              "values": {
+                "UNKNOWN": 0,
+                "GAS_PRICE": 1,
+                "BASE_RESERVE": 2
+              }
+            }
+          }
+        },
+        "CHILDTYPE": {
+          "values": {
+            "NONE": 0,
+            "INNER": 1,
+            "LEAF": 2
+          }
+        },
+        "Child": {
+          "fields": {
+            "sublocation": {
+              "type": "bytes",
+              "id": 1
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 2
+            },
+            "childtype": {
+              "type": "CHILDTYPE",
+              "id": 3
+            }
+          }
+        },
+        "Node": {
+          "fields": {
+            "children": {
+              "rule": "repeated",
+              "type": "Child",
+              "id": 1
+            }
+          }
+        },
+        "OVERLAY_MESSAGE_TYPE": {
+          "values": {
+            "OVERLAY_MSGTYPE_NONE": 0,
+            "OVERLAY_MSGTYPE_PING": 1,
+            "OVERLAY_MSGTYPE_HELLO": 2,
+            "OVERLAY_MSGTYPE_PEERS": 3,
+            "OVERLAY_MSGTYPE_TRANSACTION": 4,
+            "OVERLAY_MSGTYPE_LEDGERS": 5,
+            "OVERLAY_MSGTYPE_PBFT": 6,
+            "OVERLAY_MSGTYPE_LEDGER_UPGRADE_NOTIFY": 7
+          }
+        },
+        "Hello": {
+          "fields": {
+            "networkId": {
+              "type": "int64",
+              "id": 1
+            },
+            "ledgerVersion": {
+              "type": "int64",
+              "id": 2
+            },
+            "overlayVersion": {
+              "type": "int64",
+              "id": 3
+            },
+            "bumoVersion": {
+              "type": "string",
+              "id": 4
+            },
+            "listeningPort": {
+              "type": "int64",
+              "id": 5
+            },
+            "nodeAddress": {
+              "type": "string",
+              "id": 6
+            },
+            "nodeRand": {
+              "type": "string",
+              "id": 7
+            }
+          }
+        },
+        "HelloResponse": {
+          "fields": {
+            "errorCode": {
+              "type": "ERRORCODE",
+              "id": 1
+            },
+            "errorDesc": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "Peer": {
+          "fields": {
+            "ip": {
+              "type": "string",
+              "id": 1
+            },
+            "port": {
+              "type": "int64",
+              "id": 2
+            },
+            "numFailures": {
+              "type": "int64",
+              "id": 3
+            },
+            "nextAttemptTime": {
+              "type": "int64",
+              "id": 4
+            },
+            "activeTime": {
+              "type": "int64",
+              "id": 5
+            },
+            "connectionId": {
+              "type": "int64",
+              "id": 6
+            }
+          }
+        },
+        "Peers": {
+          "fields": {
+            "peers": {
+              "rule": "repeated",
+              "type": "Peer",
+              "id": 1
+            }
+          }
+        },
+        "GetLedgers": {
+          "fields": {
+            "begin": {
+              "type": "int64",
+              "id": 1
+            },
+            "end": {
+              "type": "int64",
+              "id": 2
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "Ledgers": {
+          "fields": {
+            "values": {
+              "rule": "repeated",
+              "type": "ConsensusValue",
+              "id": 1
+            },
+            "syncCode": {
+              "type": "SyncCode",
+              "id": 2
+            },
+            "maxSeq": {
+              "type": "int64",
+              "id": 3
+            },
+            "proof": {
+              "type": "bytes",
+              "id": 4
+            }
+          },
+          "nested": {
+            "SyncCode": {
+              "values": {
+                "OK": 0,
+                "OUT_OF_SYNC": 1,
+                "OUT_OF_LEDGERS": 2,
+                "BUSY": 3,
+                "REFUSE": 4,
+                "INTERNAL": 5
+              }
+            }
+          }
+        },
+        "DontHave": {
+          "fields": {
+            "type": {
+              "type": "int64",
+              "id": 1
+            },
+            "hash": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "LedgerUpgradeNotify": {
+          "fields": {
+            "nonce": {
+              "type": "int64",
+              "id": 1
+            },
+            "upgrade": {
+              "type": "LedgerUpgrade",
+              "id": 2
+            },
+            "signature": {
+              "type": "Signature",
+              "id": 3
+            }
+          }
+        },
+        "EntryList": {
+          "fields": {
+            "entry": {
+              "rule": "repeated",
+              "type": "bytes",
+              "id": 1
+            }
+          }
+        },
+        "ChainMessageType": {
+          "values": {
+            "CHAIN_TYPE_NONE": 0,
+            "CHAIN_HELLO": 10,
+            "CHAIN_TX_STATUS": 11,
+            "CHAIN_PEER_ONLINE": 12,
+            "CHAIN_PEER_OFFLINE": 13,
+            "CHAIN_PEER_MESSAGE": 14,
+            "CHAIN_SUBMITTRANSACTION": 15,
+            "CHAIN_LEDGER_HEADER": 16,
+            "CHAIN_SUBSCRIBE_TX": 17,
+            "CHAIN_TX_ENV_STORE": 18
+          }
+        },
+        "ChainHello": {
+          "fields": {
+            "apiList": {
+              "rule": "repeated",
+              "type": "ChainMessageType",
+              "id": 1
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 2
+            }
+          }
+        },
+        "ChainStatus": {
+          "fields": {
+            "selfAddr": {
+              "type": "string",
+              "id": 1
+            },
+            "ledgerVersion": {
+              "type": "int64",
+              "id": 2
+            },
+            "monitorVersion": {
+              "type": "int64",
+              "id": 3
+            },
+            "bumoVersion": {
+              "type": "string",
+              "id": 4
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 5
+            }
+          }
+        },
+        "ChainPeerMessage": {
+          "fields": {
+            "srcPeerAddr": {
+              "type": "string",
+              "id": 1
+            },
+            "desPeerAddrs": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 2
+            },
+            "data": {
+              "type": "bytes",
+              "id": 3
+            }
+          }
+        },
+        "ChainSubscribeTx": {
+          "fields": {
+            "address": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 1
+            }
+          }
+        },
+        "ChainResponse": {
+          "fields": {
+            "errorCode": {
+              "type": "int32",
+              "id": 1
+            },
+            "errorDesc": {
+              "type": "string",
+              "id": 2
+            }
+          }
+        },
+        "ChainTxStatus": {
+          "fields": {
+            "status": {
+              "type": "TxStatus",
+              "id": 1
+            },
+            "txHash": {
+              "type": "string",
+              "id": 2
+            },
+            "sourceAddress": {
+              "type": "string",
+              "id": 3
+            },
+            "sourceAccountSeq": {
+              "type": "int64",
+              "id": 4
+            },
+            "ledgerSeq": {
+              "type": "int64",
+              "id": 5
+            },
+            "newAccountSeq": {
+              "type": "int64",
+              "id": 6
+            },
+            "errorCode": {
+              "type": "ERRORCODE",
+              "id": 7
+            },
+            "errorDesc": {
+              "type": "string",
+              "id": 8
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 9
+            }
+          },
+          "nested": {
+            "TxStatus": {
+              "values": {
+                "UNDEFINED": 0,
+                "CONFIRMED": 1,
+                "PENDING": 2,
+                "COMPLETE": 3,
+                "FAILURE": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "monitor": {
+      "options": {
+        "java_package": "io.bumo.sdk.core.extend.protobuf"
+      },
+      "nested": {
+        "MONITOR_MESSAGE_TYPE": {
+          "values": {
+            "MONITOR_MSGTYPE_NONE": 0,
+            "MONITOR_MSGTYPE_HELLO": 30,
+            "MONITOR_MSGTYPE_REGISTER": 31,
+            "MONITOR_MSGTYPE_BUMO": 32,
+            "MONITOR_MSGTYPE_LEDGER": 33,
+            "MONITOR_MSGTYPE_SYSTEM": 34,
+            "MONITOR_MSGTYPE_ALERT": 35,
+            "MONITOR_MSGTYPE_NOTICE": 36,
+            "MONITOR_MSGTYPE_ACCOUNT_EXCEPTION": 37,
+            "MONITOR_MSGTYPE_ERROR": 39
+          }
+        },
+        "Hello": {
+          "fields": {
+            "serviceVersion": {
+              "type": "int64",
+              "id": 1
+            },
+            "connectionTimeout": {
+              "type": "int64",
+              "id": 2
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 3
+            }
+          }
+        },
+        "Register": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "blockchainVersion": {
+              "type": "string",
+              "id": 2
+            },
+            "dataVersion": {
+              "type": "int64",
+              "id": 3
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 4
+            }
+          }
+        },
+        "Peer": {
+          "fields": {
+            "id": {
+              "type": "string",
+              "id": 1
+            },
+            "delay": {
+              "type": "int64",
+              "id": 2
+            },
+            "active": {
+              "type": "bool",
+              "id": 3
+            },
+            "ipAddress": {
+              "type": "string",
+              "id": 4
+            }
+          }
+        },
+        "GlueManager": {
+          "fields": {
+            "systemCurrentTime": {
+              "type": "string",
+              "id": 1
+            },
+            "processUptime": {
+              "type": "string",
+              "id": 2
+            },
+            "systemUptime": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        },
+        "PeerManager": {
+          "fields": {
+            "peerId": {
+              "type": "string",
+              "id": 1
+            },
+            "peer": {
+              "rule": "repeated",
+              "type": "Peer",
+              "id": 2
+            }
+          }
+        },
+        "BumoStatus": {
+          "fields": {
+            "glueManager": {
+              "type": "GlueManager",
+              "id": 1
+            },
+            "peerManager": {
+              "type": "PeerManager",
+              "id": 2
+            }
+          }
+        },
+        "LedgerStatus": {
+          "fields": {
+            "ledgerHeader": {
+              "type": "protocol.LedgerHeader",
+              "id": 1
+            },
+            "transactionSize": {
+              "type": "int64",
+              "id": 2
+            },
+            "accountCount": {
+              "type": "int64",
+              "id": 3
+            },
+            "timestamp": {
+              "type": "int64",
+              "id": 4
+            }
+          }
+        },
+        "SystemProperty": {
+          "fields": {
+            "hostName": {
+              "type": "string",
+              "id": 1
+            },
+            "osVersion": {
+              "type": "string",
+              "id": 2
+            },
+            "startupTime": {
+              "type": "int64",
+              "id": 3
+            },
+            "osBit": {
+              "type": "string",
+              "id": 4
+            }
+          }
+        },
+        "SystemResource": {
+          "fields": {
+            "available": {
+              "type": "int64",
+              "id": 1
+            },
+            "total": {
+              "type": "int64",
+              "id": 2
+            },
+            "usedPercent": {
+              "type": "double",
+              "id": 3
+            },
+            "description": {
+              "type": "string",
+              "id": 4
+            }
+          }
+        },
+        "Partition": {
+          "fields": {
+            "totalBytes": {
+              "type": "int64",
+              "id": 1
+            },
+            "partition": {
+              "rule": "repeated",
+              "type": "SystemResource",
+              "id": 2
+            }
+          }
+        },
+        "CPU": {
+          "fields": {
+            "usedPercent": {
+              "type": "double",
+              "id": 1
+            }
+          }
+        },
+        "SystemStatus": {
+          "fields": {
+            "property": {
+              "type": "SystemProperty",
+              "id": 1
+            },
+            "memory": {
+              "type": "SystemResource",
+              "id": 2
+            },
+            "cpu": {
+              "type": "CPU",
+              "id": 3
+            },
+            "partitions": {
+              "type": "Partition",
+              "id": 4
+            }
+          }
+        },
+        "AlertStatus": {
+          "fields": {
+            "ledgerSequence": {
+              "type": "int64",
+              "id": 1
+            },
+            "nodeId": {
+              "type": "string",
+              "id": 2
+            },
+            "system": {
+              "type": "SystemStatus",
+              "id": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

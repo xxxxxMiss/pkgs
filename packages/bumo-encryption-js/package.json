@@ -1,0 +1,40 @@
+{
+  "name": "bumo-encryption",
+  "private": true,
+  "version": "1.0.3",
+  "description": "bumo-encryption",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "lib/*"
+  ],
+  "author": "BUMO",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "is-type-of": "^1.2.0",
+    "sjcl": "^1.0.7"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "bumo",
+    "bumo-encryption"
+  ],
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "extends": ["plugin:prettier/recommended"],
+  "rules": {
+    "prettier/prettier": "warn"
+  }
+}

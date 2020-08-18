@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "bs": "lerna bootstrap",
+    "release": "node ./scripts/release.js"
+  }
+}

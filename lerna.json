@@ -1,0 +1,18 @@
+{
+  "npmClient": "npm",
+  "command": {
+    "publish": {
+      "ignoreChanges": ["*.md", "packages/**/*.md"],
+      "message": "chore(release): publish"
+    },
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  },
+  "packages": [
+    "packages/*",
+    "!packages/egg-view-memoryfs",
+    "!packages/miniapp-axios"
+  ],
+  "version": "independent"
+}
