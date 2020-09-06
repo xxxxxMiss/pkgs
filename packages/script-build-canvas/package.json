@@ -1,0 +1,19 @@
+{
+  "name": "script-build-canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "build-canvas": "./index.js"
+  },
+  "files": [
+    "lib/*",
+    "index.js"
+  ],
+  "keywords": [],
+  "author": "xxxxxMiss <xxxxxmiss@gmail.com> (https://github.com/xxxxxMiss)",
+  "license": "ISC"
+}
