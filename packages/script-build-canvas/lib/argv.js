@@ -22,6 +22,12 @@ module.exports = require('yargs')
     type: 'boolean',
     default: false,
   })
+  .option('open', {
+    alias: 'o',
+    describe: 'open browser to view the corresponding version of node and alinode',
+    type: 'boolean',
+    default: false
+  })
   .demandOption(
     ['alinode-version'],
     'You must specify the version of alinode corresponding to node,\ndetails at the link `https://help.aliyun.com/document_detail/60811.html`'

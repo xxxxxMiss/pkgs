@@ -15,5 +15,8 @@
   ],
   "keywords": [],
   "author": "xxxxxMiss <xxxxxmiss@gmail.com> (https://github.com/xxxxxMiss)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "open": "^7.2.1"
+  }
 }

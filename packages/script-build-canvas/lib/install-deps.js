@@ -2,6 +2,7 @@ const os = require('os')
 const child_process = require('child_process')
 const fs = require('fs')
 const path = require('path')
+const open = require('open')
 const { setConfig, getConfig } = require('./config')
 
 const options = {
@@ -77,6 +78,11 @@ const hasBuild = argv => {
 }
 
 exports.build = arvg => {
+  if (config.open) {
+    open('https://help.aliyun.com/document_detail/60811.html')
+    return
+  }
+
   let config = getConfig()
   config = { ...config, ...arvg }
 
