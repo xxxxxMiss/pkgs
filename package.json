@@ -2,11 +2,17 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "father": "^2.30.1",
+    "lerna": "^3.22.1",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "bs": "lerna bootstrap",
-    "release": "node ./scripts/release.js"
+    "release": "node ./scripts/release.js",
+    "update:deps": "yarn upgrade-interactive --latest",
+    "build": "father build"
   }
 }
