@@ -17,7 +17,9 @@ npm install --save common-pagination-with-dva
 ## Usage
 
 ```js
-import PaginationModel, { setFetchListApi } from 'common-pagination-with-dva'
+import PaginationModel, {
+  getCommonPagination,
+} from 'common-pagination-with-dva'
 
 // /models/global.js
 
@@ -49,8 +51,12 @@ fetchList({ payload }, { call, put, select }) {
 ## PaginationModel#reducers
 
 ```js
+// v2中已废弃
 setList(state, { payload }) {}
+
+// V2中只存在这2个reducers
 setPagination(state, { payload }) {}
+setState(state, {payload})
 ```
 
 ## PaginationModel#subscriptions
@@ -67,6 +73,8 @@ listenRouterChange({ history, dispatch }) {
 ```
 
 ## setFetchListApi 或者作为`payload`的一个属性
+
+**Note: V2 已移除这种用法**
 
 > 考虑到每个页面请求列表的 api 肯定是不一样的，但是公用一个全局的分页 model，所以在每个页面需要自己手动通过这个函数来设置请求的 API
 
@@ -111,6 +119,40 @@ export default connect(({ CommonPagination }) => {
     ...
   }
 })(ReactComponent)
+```
+
+## getCommonPagination(namespace: string): model
+
+> 考虑到一个页面中可能同时有 2 个分页 table 设置更多，所以为了适配这种情况，导出了一个动态生成一个`model`的函数，需要提供一个`namespace`参数，其他用法不变。
+
+```js
+// model.js
+const model = getCommonPagination('comment')
+
+// 页面中使用这个model
+useEffect(() => {
+  props.dispatch({
+    type: 'comment/fetchList',
+    payload: {},
+  })
+})
+
+// 因为model中的state的key值都是一样的，
+// {list: [], pagination: {pageSize: 10, pageNumber: 1, total: 0}}
+// 所以在connect中需要注意区分，比如：
+export default connect(({ CommonPagination, comment }) => {
+  // ❌ 后面comment会覆盖前面的CommonPagination
+  // return { ...CommonPagination, ...comment }
+
+  // ✅
+  return { ...CommonPagination, commment }
+  // 或者重命名，反正就是不要同名覆盖
+  return {
+    ...CommonPagination,
+    commentList: comment.list,
+    commentPagination: comment.pagination,
+  }
+})(Page)
 ```
 
 ## License

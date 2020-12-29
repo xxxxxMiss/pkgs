@@ -1,6 +1,6 @@
 {
   "name": "common-pagination-with-dva",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A common global model for pagination with dva",
   "author": "chenxianlong",
   "license": "MIT",
