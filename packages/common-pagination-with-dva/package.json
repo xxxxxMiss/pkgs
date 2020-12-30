@@ -1,11 +1,14 @@
 {
   "name": "common-pagination-with-dva",
-  "version": "2.0.0",
-  "description": "A common global model for pagination with dva",
+  "version": "1.0.0",
+  "description": "common-pagination-with-dva",
   "author": "chenxianlong",
   "license": "MIT",
-  "repository": "chenxianlong/common-pagination-with-dva",
-  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
+  },
+  "main": "lib/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "engines": {
@@ -65,7 +68,7 @@
     "standard-version": "^8.0.2"
   },
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
   "config": {
@@ -87,5 +90,11 @@
     "errorOnDeprecated": true,
     "globals": {},
     "verbose": true
+  },
+  "keywords": [
+    "common-pagination-with-dva"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

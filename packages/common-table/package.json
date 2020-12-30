@@ -1,0 +1,21 @@
+{
+  "name": "common-table",
+  "version": "1.0.0",
+  "description": "common-table",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
+  },
+  "keywords": [
+    "common-table"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

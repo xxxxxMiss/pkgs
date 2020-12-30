@@ -1,8 +1,8 @@
 {
   "name": "script-build-canvas",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "script-build-canvas",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,22 @@
     "build-canvas": "./index.js"
   },
   "files": [
-    "lib/*",
-    "index.js"
+    "lib",
+    "src"
   ],
-  "keywords": [],
+  "keywords": [
+    "script-build-canvas"
+  ],
   "author": "xxxxxMiss <xxxxxmiss@gmail.com> (https://github.com/xxxxxMiss)",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "open": "^7.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "script-git-version",
+  "version": "1.0.0",
+  "description": "script-git-version",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
+  },
+  "keywords": [
+    "script-git-version"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
