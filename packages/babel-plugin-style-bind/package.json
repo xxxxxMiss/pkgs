@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-style-bind",
+  "version": "1.0.0",
+  "description": "babel-plugin-style-bind",
+  "scripts": {
+    "test": "umi-test"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
+  },
+  "keywords": [
+    "babel-plugin-style-bind"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

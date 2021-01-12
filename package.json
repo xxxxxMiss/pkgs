@@ -2,6 +2,8 @@
   "name": "root",
   "private": true,
   "devDependencies": {
+    "@babel/preset-react": "^7.12.10",
+    "babel-plugin-tester": "^10.0.0",
     "father": "^2.30.1",
     "lerna": "^3.22.1",
     "lodash": "^4.17.20",
@@ -15,6 +17,7 @@
     "bs": "node ./scripts/bootstrap.js",
     "release": "node ./scripts/release.js",
     "update:deps": "yarn upgrade-interactive --latest",
-    "build": "father build"
+    "build": "father build",
+    "test": "umi-test"
   }
 }
