@@ -11,11 +11,11 @@ const exec = (command, args, options) => {
       stdio: 'inherit',
       ...options,
     })
-    child.on('error', (error) => {
+    child.on('error', error => {
       console.error(error)
       reject(error)
     })
-    child.on('close', (code) => {
+    child.on('close', code => {
       if (code) {
         process.exit(1)
       } else {
@@ -29,8 +29,8 @@ const getPkgs = () => {
   const packagesDir = path.join(process.cwd(), 'packages')
   return fs
     .readdirSync(packagesDir)
-    .filter((dir) => !dir.startsWith('.'))
-    .map((dir) => path.join(packagesDir, dir))
+    .filter(dir => !dir.startsWith('.'))
+    .map(dir => path.join(packagesDir, dir))
 }
 
 const privateRegistry = 'http://172.17.3.163:80/'
@@ -39,9 +39,10 @@ const publicRegistry = 'http://nexus.iblockplay.com:8082/repository/npm-hosted/'
 ;(async () => {
   await exec(lerna, ['publish', '--registry', privateRegistry])
   // sync to nexus
-  getPkgs().forEach((pkg) => {
+  getPkgs().forEach(pkg => {
     exec('npm', ['publish', pkg, '--registry', publicRegistry]).then(() => {
-      console.log(chalk.green(`Successfully: ${pkg}`))
+      const { name, version } = require(pkg)
+      console.log(chalk.green(`Sync successfully: ${name}@${version}`))
     })
   })
 })()

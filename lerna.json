@@ -1,18 +1,6 @@
 {
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "command": {
-    "publish": {
-      "ignoreChanges": ["*.md", "packages/**/*.md"],
-      "message": "chore(release): publish"
-    },
-    "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
-    }
-  },
-  "packages": [
-    "packages/babel-plugin-style-bind"
-  ],
   "version": "independent",
   "ignoreChanges": [
     "**/*.md",

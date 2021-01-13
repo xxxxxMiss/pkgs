@@ -9,9 +9,22 @@
     "babel-plugin-tester": "^10.0.0",
     "father": "^2.30.1",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.5.3",
     "lodash": "^4.17.20",
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
   },
   "scripts": {
     "bs": "node ./scripts/bootstrap.js",
