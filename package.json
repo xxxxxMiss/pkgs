@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/preset-react": "^7.12.10",
     "babel-plugin-tester": "^10.0.0",
@@ -10,12 +13,9 @@
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "bs": "node ./scripts/bootstrap.js",
-    "release": "node ./scripts/release.js",
+    "release": "yarn run build && node ./scripts/release.js",
     "update:deps": "yarn upgrade-interactive --latest",
     "build": "father build",
     "test": "umi-test"

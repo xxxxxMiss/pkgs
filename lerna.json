@@ -11,9 +11,7 @@
     }
   },
   "packages": [
-    "packages/*",
-    "!packages/egg-view-memoryfs",
-    "!packages/miniapp-axios"
+    "packages/babel-plugin-style-bind"
   ],
   "version": "independent",
   "ignoreChanges": [
