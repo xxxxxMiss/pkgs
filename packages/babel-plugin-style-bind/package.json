@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-style-bind",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "babel-plugin-style-bind",
   "scripts": {
     "test": "umi-test"
