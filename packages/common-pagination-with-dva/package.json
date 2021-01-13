@@ -1,6 +1,6 @@
 {
   "name": "common-pagination-with-dva",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "common-pagination-with-dva",
   "author": "chenxianlong",
   "license": "MIT",
@@ -98,5 +98,5 @@
     "access": "public"
   },
   "private": false,
-  "gitHead": "853d1858c8652ac66c940a055ffd7ea6a25f6a7a"
+  "gitHead": "0151e87e7026bcefd80795203a5c1c4f0e70d577"
 }

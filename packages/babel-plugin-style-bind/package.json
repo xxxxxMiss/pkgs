@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-style-bind",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "babel-plugin-style-bind",
   "scripts": {
     "test": "umi-test"
@@ -22,5 +22,5 @@
     "access": "public"
   },
   "private": false,
-  "gitHead": "853d1858c8652ac66c940a055ffd7ea6a25f6a7a"
+  "gitHead": "0151e87e7026bcefd80795203a5c1c4f0e70d577"
 }

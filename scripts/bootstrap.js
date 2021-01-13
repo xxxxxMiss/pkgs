@@ -19,6 +19,9 @@ const path = require('path')
       keywords: [pkg],
       license: 'MIT',
       private: false,
+      publishConfig: {
+        access: 'public',
+      },
     }
     const t = path.join(target, pkg, 'package.json')
     if (!fs.existsSync(t)) {
