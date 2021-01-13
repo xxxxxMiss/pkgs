@@ -1,5 +1,8 @@
 const { spawn } = require('child_process')
+const path = require('path')
+const fs = require('fs')
 const lerna = require.resolve('lerna/cli')
+const chalk = require('chalk')
 
 const exec = (command, args, options) => {
   return new Promise((resolve, reject) => {
@@ -22,9 +25,23 @@ const exec = (command, args, options) => {
   })
 }
 
+const getPkgs = () => {
+  const packagesDir = path.join(process.cwd(), 'packages')
+  return fs
+    .readdirSync(packagesDir)
+    .filter((dir) => !dir.startsWith('.'))
+    .map((dir) => path.join(packagesDir, dir))
+}
+
 const privateRegistry = 'http://172.17.3.163:80/'
 const publicRegistry = 'http://nexus.iblockplay.com:8082/repository/npm-hosted/'
 
-exec(lerna, ['publish', '--registry', privateRegistry]).then(() => {
-  exec(lerna, ['publish', '--registry', publicRegistry])
-})
+;(async () => {
+  await exec(lerna, ['publish', '--registry', privateRegistry])
+  // sync to nexus
+  getPkgs().forEach((pkg) => {
+    exec('npm', ['publish', pkg, '--registry', publicRegistry]).then(() => {
+      console.log(chalk.green(`Successfully: ${pkg}`))
+    })
+  })
+})()
