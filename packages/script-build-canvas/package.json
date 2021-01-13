@@ -1,6 +1,6 @@
 {
   "name": "script-build-canvas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "script-build-canvas",
   "main": "lib/index.js",
   "scripts": {
