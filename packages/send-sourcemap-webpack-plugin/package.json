@@ -1,7 +1,7 @@
 {
-  "name": "script-git-version",
-  "version": "1.0.5",
-  "description": "script-git-version",
+  "name": "send-sourcemap-webpack-plugin",
+  "version": "1.0.0",
+  "description": "send-sourcemap-webpack-plugin",
   "main": "lib/index.js",
   "files": [
     "lib",
@@ -12,12 +12,11 @@
     "url": "https://gitlab.intranet.huiyin.com/union/qdjj/jiansu-front-basic.git"
   },
   "keywords": [
-    "script-git-version"
+    "send-sourcemap-webpack-plugin"
   ],
   "license": "MIT",
+  "private": false,
   "publishConfig": {
     "access": "public"
-  },
-  "private": false,
-  "gitHead": "84f4233ccb701413def411ddff87ef3d3a678081"
+  }
 }

@@ -1,6 +1,5 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect } from 'react'
 import { Table } from 'antd'
-import { connect } from 'umi'
 
 const CommonTable = ({
   columns = [],
@@ -9,26 +8,24 @@ const CommonTable = ({
   fetchListApi,
   payload,
   pagination,
-  list,
+  dataSource,
   pageSize,
   pageNumber,
   total,
   deps = [],
   ...props
 }) => {
-  const api = useCallback(() => fetchListApi, [payload])
-
   useEffect(() => {
     dispatch({
       type: 'CommonPagination/fetchList',
       payload,
-      fetchListApi: api,
+      fetchListApi,
     })
   }, [pageSize, pageNumber, ...deps])
 
   return (
     <Table
-      dataSource={list}
+      dataSource={dataSource}
       columns={columns}
       {...props}
       pagination={{
@@ -55,6 +52,4 @@ const CommonTable = ({
   )
 }
 
-export default connect(({ CommonPagination }) => {
-  return { list: CommonPagination.list, ...CommonPagination.pagination }
-})(CommonTable)
+export default CommonTable
